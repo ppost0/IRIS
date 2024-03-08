@@ -1,0 +1,11 @@
+{
+  "name": "iris",
+  "version": "1.0.0",
+  "description": "See your images through the lens of AI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
