@@ -4,14 +4,18 @@ const Login = () => {
 
   return (
 
-    <div className='login-container'>
-      <h1 className='login-title'>Welcome</h1>
-      <form action=''>
-        <label for='usernameField'>Username or Email</label>
-        <input type='text'></input>
-        <label for='passwordField'>Password</label>
-        <input type='password'></input>
-
+    <div className='login-container flex flex-col items-center justify-center w-screen h-screen bg-gray-200 text-gray-700'>
+      <h1 className='login-title font-bold text-2xl'>Welcome</h1>
+      <form className='flex flex-col bg-white rounded shadow-lg p-12 mt-12' action=''>
+        <label htmlFor='usernameField '>Username or Email</label>
+        <input className='flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2' type='text'></input>
+        <label htmlFor='passwordField'>Password</label>
+        <input className='flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2' type='password'></input>
+        <button>Login</button>
+        <div className='login-redirects flex mt-6 justify-center text-xs'>
+          <a href='#'>Forgot Password</a>
+          <a href='#'>Sign Up</a>
+        </div>
       </form>
 
 
