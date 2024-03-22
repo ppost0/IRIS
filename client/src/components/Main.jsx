@@ -11,4 +11,4 @@ const Main = () => {
 };
 
 
-export default App;
+export default Main;
