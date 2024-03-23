@@ -2,13 +2,14 @@
   "name": "iris",
   "version": "1.0.0",
   "description": "See your images through the lens of AI.",
-  "main": "./client/src/index.js",
+  "main": "./client/public/bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "node --watch server/server.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color\" \"nodemon ./server/server.ts\""
   },
+  "type":"module",
   "author": "",
   "license": "ISC",
   "dependencies": {
