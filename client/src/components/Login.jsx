@@ -4,9 +4,9 @@ const Login = () => {
 
   return (
 
-    <div className='login-container flex flex-col items-center justify-center w-screen h-screen bg-gray-200 text-gray-700'>
-      <h1 className='login-title font-bold text-2xl'>Welcome to Iris</h1>
-      <form className='flex flex-col bg-white rounded shadow-lg p-12 mt-12' action=''>
+    <div className='login-container flex flex-col items-center justify-center w-screen h-screen bg-blue-200 text-gray-700'>
+      <h1 className='login-title font-bold text-3xl'>Welcome to IRIS</h1>
+      <form className='flex flex-col bg-white rounded-md shadow-lg p-12 mt-12' action=''>
         <label htmlFor='usernameField' className='font-semibold text-xs'>Username or Email</label>
         <input className='flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2' type='text'></input>
         <label htmlFor='passwordField' className='font-semibold text-xs mt-3'>Password</label>
@@ -28,3 +28,4 @@ const Login = () => {
 
 
 export default Login;
+
