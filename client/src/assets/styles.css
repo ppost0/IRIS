@@ -6,26 +6,15 @@
 
 /*==||================GENERAL STYLES===================*/
 
-
-
-
-
-
-
-
+html {
+  background-color:#171717;
+}
 
 
 
 
 
 /*==||================UTILITIES===================*/
-
-.login-title {
-  font-family: 'Baloo 2';
-  font-size: 50px;
-}
-
-
 
 
 
@@ -42,9 +31,13 @@
 
 
 
-
-
-
-
 /*==||================COMPONENTS===================*/
 
+.login-title {
+  font-family: 'Baloo 2';
+  font-size: 50px;
+}
+
+login-container {
+
+}

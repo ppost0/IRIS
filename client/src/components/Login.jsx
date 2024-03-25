@@ -8,7 +8,9 @@ const Login = () => {
     <div className='login-container flex flex-col items-center justify-center w-screen h-screen bg-neutral-900 text-stone-300'>
       <h1 className='login-title font-bold text-2xl'>Welcome to</h1>
       <div className='flex'>
-      <img className='logo' src={logo}></img>
+      <div className='login-logo-container flex items-center'>
+        <img id='login-logo' className='logo' src={logo}/>
+      </div>
       <form className='flex flex-col bg-stone-800 rounded shadow-lg p-12 mt-12' action=''>
         <label htmlFor='usernameField' className='font-semibold text-xs'>Username or Email</label>
         <input className='flex items-center h-12 px-4 w-64 bg-neutral-700 mt-2 rounded focus:outline-none focus:ring-2' type='text'></input>
