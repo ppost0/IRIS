@@ -6,7 +6,7 @@ const Login = () => {
   return (
 
     <div className='login-container flex flex-col items-center justify-center w-screen h-screen bg-neutral-900 text-stone-300'>
-      <h1 className='login-title font-bold text-2xl'>Welcome to</h1>
+      <h1 className='login-title font-bold text-2xl'>Welcome</h1>
       <div className='flex'>
       <div className='login-logo-container flex items-center'>
         <img id='login-logo' className='logo' src={logo}/>
