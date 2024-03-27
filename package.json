@@ -4,6 +4,7 @@
   "description": "See your images through the lens of AI.",
   "main": "./client/public/bundle.js",
   "scripts": {
+    "css:watch": "npx tailwindcss -i ./client/src/assets/styles.css -o ./client/public/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config ./webpack.config.js",
     "start": "NODE_ENV=production nodemon server/server.js",

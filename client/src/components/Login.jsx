@@ -9,9 +9,9 @@ const Login = () => {
       <h1 className='login-title font-bold text-2xl'>Welcome</h1>
       <div className='flex'>
       <div className='login-logo-container flex items-center'>
-        <img id='login-logo' className='logo' src={logo}/>
+        <img id='login-logo' className='logo p-8 mt-12' src={logo}/>
       </div>
-      <form className='flex flex-col bg-stone-800 rounded shadow-lg p-12 mt-12' action=''>
+      <form className='flex flex-col bg-stone-800 rounded-md shadow-lg p-12 mt-12' action=''>
         <label htmlFor='usernameField' className='font-semibold text-xs'>Username or Email</label>
         <input className='flex items-center h-12 px-4 w-64 bg-neutral-700 mt-2 rounded focus:outline-none focus:ring-2' type='text'></input>
         <label htmlFor='passwordField' className='font-semibold text-xs mt-3'>Password</label>
