@@ -1,10 +1,10 @@
-const express = require('express');
+import express, { Application, Request, Response, NextFunction } from 'express';
 const dotenv = require('dotenv');
 const path = require('path');
 
 dotenv.config();
 
-const app = express();
+const app:Application = express();
 const port = process.env.PORT;
 
 const userRouter = require('./routes/userRouter.js');
@@ -43,13 +43,13 @@ app.use('/user', userRouter);
 /*=====================================================================*/
 
 // Catch-all route handler
-app.use('/*', (req, res) => {
+app.use('/*', (req:Request, res:Response) => {
   return res.status(404).send('Page not found - 404');
 });
 
 
 // Global Error Handler
-app.use((err, req, res, next) => {
+app.use((err:Error, req:Request, res:Response, next:NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
