@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
-const dotenv = require('dotenv');
-const path = require('path');
+import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
