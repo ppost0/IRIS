@@ -21,5 +21,4 @@ userController.signup = (req, res, next) => {
 
 
 
-
-export default userController;
+module.exports = userController;
