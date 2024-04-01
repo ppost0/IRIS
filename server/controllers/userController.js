@@ -1,4 +1,4 @@
-// require db
+const db = require('../models/userModel.js');
 
 const userController = {}
 
