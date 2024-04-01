@@ -1,12 +1,15 @@
 import React from "react";
-import Login from "./components/Login.jsx";
+import { Route, Routes } from 'react-router-dom';
+import Login from './components/Login.jsx';
+import MainFeed from './components/MainFeed.jsx';
 
 
 const App = () => {
   return (
-    <div className='app-container'>
-      <Login/>
-    </div>
+    <Routes>
+      <Route path='/' element={<Login/>} />
+      <Route path='/feed' element={<MainFeed/>} />
+    </Routes>
   );
 };
 
