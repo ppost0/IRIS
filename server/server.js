@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
+const mongoose = require('mongoose');
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ const port = process.env.PORT;
 
 const userRouter = require('./routes/userRouter.js');
 
-/*==================================================================*/
+/* ================================================================= */
 
 // Handle parsing of request body
 app.use(express.json());
@@ -17,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Handle requests for static files
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
-
 
 // Define route handlers
 app.use('/user', userRouter);
@@ -33,35 +33,38 @@ app.use('/user', userRouter);
 
 
 
-
-
-
-
-
-
-
-/*=====================================================================*/
+/* ==================================================================== */
 
 // Catch-all route handler
-app.use('/*', (req, res) => {
-  return res.status(404).send('Page not found - 404');
-});
-
+app.use('/*', (req, res) => res.status(404).send('Page not found - 404'));
 
 // Global Error Handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
     message: { err: 'An error occurred' },
   };
-  const errorObj = Object.assign({}, defaultErr, err);
+  const errorObj = { ...defaultErr, ...err };
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
 
-// Listen on PORT in .env
-app.listen(port, () => {
-  console.log(`Server is listening on PORT:${port}`);
-});
+
+// Connect to db
+mongoose.connect(process.env.uri)
+  .then(() => {
+    console.log('Connected to db successfully.');
+
+    // Only listen for requests if db was connected, otherwise do not listen
+    app.listen(port, () => {
+      console.log(`Server is listening on PORT:${port}`);
+    });
+  })
+  .catch((err) => {
+    // db not connected
+    console.log(error);
+  })
+
+
