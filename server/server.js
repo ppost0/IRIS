@@ -65,6 +65,6 @@ mongoose.connect(process.env.uri)
   .catch((err) => {
     // db not connected
     console.log(error);
-  })
+  });
 
 
