@@ -1,36 +1,24 @@
-const User = require('../models/userModel');
+const User = require('../models/userModel.js');
 
 const userController = {};
 
-/**
-* getAllUsers - retrieve all users from the database and stores it into res.locals
-* before moving on to next middleware.
-*/
-userController.signup = (req, res, next) => {
 
-  const dummyData = {
+userController.signup = async (req, res, next) => {
+
+  const user = {
+    firstname: 'Patrick',
+    lastname: 'Post',
     username: 'ppost',
-    password: 'abc123'
+    email: 'hello@patrick.com',
+    hashed_password: '6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090',
+    salt: 'salt',
   }
 
+  await User.create(user)
 
-    User.create(dummyData)
-      .then((user) => {
-        user.save();
-        res.locals.username = dummyData.username;
-        console.log('inside mongoose create');
-        return next();
-      })
-        .catch(() => {
-          const err = {
-            log: 'Express error handler caught error in userController.signup',
-            status: 500,
-            message: { err: 'An error has occurred' },
-          };
-          return next(err);
-        });
 
-    return next()
+
+  return next()
 };
 
 

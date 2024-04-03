@@ -37,35 +37,7 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 
-// userSchema.virtual('password')
-//   .set(() => {
 
-//   })
-//   .get(() => {
-
-//   })
-
-
-// userSchema.methods = {
-//   authenticate: (plainPassword) => {
-//     bcrypt.compare(plainPassword, this.hashed_password, function(err, result) {
-//       // result == true
-//     });
-//   },
-
-//   securePassword: (plainPassword) => {
-//     if (!plainPassword) return '';
-
-//     try {
-
-//     }
-//     catch {
-
-//     }
-//   }
-
-
-// }
 
 
 
