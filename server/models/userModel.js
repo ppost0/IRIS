@@ -5,8 +5,22 @@ const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
-  username: {type: String, required: true, unique: true},
-  password: {type: String, required: true}
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    requied: true,
+    unique: true,
+    trim: true
+  }
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
