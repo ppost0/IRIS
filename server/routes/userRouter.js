@@ -12,8 +12,8 @@ router.post('/', userController.signup, (req, res) => {
 });
 
 // Login an existing user
-router.post('/login', (req, res) => {
-  return res.status(200).json('dummy response - login');
+router.post('/login', userController.login, (req, res) => {
+  return res.status(200).json(res.locals.user);
 });
 
 
