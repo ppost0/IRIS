@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
 // Define route handlers
-app.use('/user', userRouter);
+app.use('/api/users', userRouter);
 
 
 

@@ -7,13 +7,11 @@ const bcrypt = require('bcryptjs');
 const userSchema = new Schema({
   firstname: {
     type: String,
-    required: true,
     maxlength: 32,
     trim: true,
   },
   lastname: {
     type: String,
-    required: true,
     maxlength: 32,
     trim: true,
   },
@@ -29,7 +27,7 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
-  hashed_password: {
+  password: {
     type: String,
     required: true,
   },
