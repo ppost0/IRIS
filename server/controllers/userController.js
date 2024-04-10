@@ -70,31 +70,31 @@ userController.login = async (req, res, next) => {
   const usernameExists = await User.findOne({ username });
   if (!emailExists && !usernameExists) {
     console.log('Username or email does not exist');
-    return res.status(400).json({ error: 'Email / username or password incorrect.' });
+    return res.status(400).json({ error: 'Could not login.' });
   }
 
+
+  // Find hashed password from database depending on if user logged in with name or email
   let registeredPassword = '';
   if (emailExists) registeredPassword = emailExists.password;
   if (usernameExists) registeredPassword = usernameExists.password;
 
-  // Check password
+
+  // Check if entered password matches
   const matched = await bcrypt.compare(password, registeredPassword);
   if (!matched) {
     console.log('Password is incorrect.')
-    return res.status(400).json({ error: 'Email/username or password incorrect.' })
+    return res.status(400).json({ error: 'Could not login.' })
   }
 
 
-  // Add document to db
   try {
-    res.locals.user = username || email;
+    res.locals.user = username ? username : email;
     return next();
   }
   catch(error) {
     return res.status(500).json({ error: error.message });
   }
-
-
 
 }
 
