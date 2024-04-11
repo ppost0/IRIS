@@ -1,9 +1,12 @@
 const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
 
 const userController = {};
 
+
+
+// ===================|SIGN UP NEW USER|=====================
 
 userController.signup = async (req, res, next) => {
 
@@ -38,8 +41,6 @@ userController.signup = async (req, res, next) => {
   // console.log('hash --->', hash);
 
 
-
-
   // Add document to db
   try {
     const user = await User.create({ firstname, lastname, email, username, password: hash });
@@ -52,8 +53,11 @@ userController.signup = async (req, res, next) => {
 
 };
 
-userController.login = async (req, res, next) => {
 
+
+// =================|LOGIN EXISTING USER|=====================
+
+userController.login = async (req, res, next) => {
 
   // Grab data from request here
   const { email, username, password } = req.body;
@@ -74,7 +78,7 @@ userController.login = async (req, res, next) => {
   }
 
 
-  // Find hashed password from database depending on if user logged in with name or email
+  // Set password by finding db entry depending on if user or email was used to login
   let registeredPassword = '';
   if (emailExists) registeredPassword = emailExists.password;
   if (usernameExists) registeredPassword = usernameExists.password;

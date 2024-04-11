@@ -53,7 +53,7 @@ app.use((err, req, res) => {
 
 
 // Connect to db
-mongoose.connect(process.env.uri, { dbName:'IRIS' })
+mongoose.connect(process.env.URI, { dbName:'IRIS' })
   .then(() => {
     console.log('Connected to db successfully.');
 
