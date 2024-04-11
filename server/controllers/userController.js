@@ -6,6 +6,24 @@ const userController = {};
 
 
 
+// ======================|CREATE JWT|========================
+
+createToken = (_id) => {
+  return jwt.sign({_id}, process.env.SECRET, {expiresIn: '10d'});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ===================|SIGN UP NEW USER|=====================
 
 userController.signup = async (req, res, next) => {
@@ -43,8 +61,12 @@ userController.signup = async (req, res, next) => {
 
   // Add document to db
   try {
+    // Register user in db
     const user = await User.create({ firstname, lastname, email, username, password: hash });
+    // Create JWT
+    const token = createToken(user._id);
     res.locals.email = email;
+    res.locals.token = token;
     return next();
   }
   catch(error) {
@@ -94,6 +116,8 @@ userController.login = async (req, res, next) => {
 
   try {
     res.locals.user = username ? username : email;
+    const token = createToken(emailExists ? emailExists._id : usernameExists._id);
+    res.locals.token = token;
     return next();
   }
   catch(error) {
