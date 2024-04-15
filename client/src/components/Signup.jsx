@@ -8,18 +8,21 @@ const Signup = () => {
 
     const signupUser = async () => {
       try {
-        if (document.getElementById('passwordField').value === document.getElementById('reEnterPasswordField').value) {
+        // if (document.getElementById('passwordField').value === document.getElementById('reEnterPasswordField').value) {
           const response = await fetch('/api/users', {
             method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({
-              email: document.getElementById('emailField').value,
-              firstname: document.getElementById('firstNameField').value,
-              lastname: document.getElementById('lastNameField').value,
-              username: document.getElementById('usernameField').value,
-              password: document.getElementById('passwordField').value
+              // email: document.getElementById('emailField').value,
+              // firstname: document.getElementById('firstNameField').value,
+              // lastname: document.getElementById('lastNameField').value,
+              // username: document.getElementById('usernameField').value,
+              // password: document.getElementById('passwordField').value
             })
           })
-        }
+
 
 
 
@@ -69,7 +72,7 @@ const Signup = () => {
             <label htmlFor='reEnterPasswordField' className='font-semibold text-xs mt-3'>Re-enter Password</label>
             <input className='flex items-center h-12 px-4 w-64 bg-neutral-700 mt-2 rounded focus:outline-none focus:ring-2' type='password'></input>
           </div>
-          <button onClick={signupUser} className='flex items-center justify-center h-12 px-6 w-64 bg-blue-500 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-600'>Sign Up</button>
+          <button onClick={signupUser} type='button' className='flex items-center justify-center h-12 px-6 w-64 bg-blue-500 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-600'>Sign Up</button>
           <div className='signup-redirects items-center flex mt-6 justify-center text-xs'>
             <a className='text-blue-500 hover:text-blue-600' href='#'>Forgot Password</a>
             <span id='signup-logo' className="mx-2 text-neutral-700">/</span>
