@@ -11,15 +11,16 @@ const Signup = () => {
         // if (document.getElementById('passwordField').value === document.getElementById('reEnterPasswordField').value) {
           const response = await fetch('/api/users', {
             method: 'POST',
+            mode: "cors",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              // email: document.getElementById('emailField').value,
-              // firstname: document.getElementById('firstNameField').value,
-              // lastname: document.getElementById('lastNameField').value,
-              // username: document.getElementById('usernameField').value,
-              // password: document.getElementById('passwordField').value
+              email: document.getElementById('emailField').value,
+              firstname: document.getElementById('firstNameField').value,
+              lastname: document.getElementById('lastNameField').value,
+              username: document.getElementById('usernameField').value,
+              password: document.getElementById('passwordField').value
             })
           })
 
