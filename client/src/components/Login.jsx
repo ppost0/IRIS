@@ -20,7 +20,7 @@ const Login = () => {
           <div className='login-redirects flex mt-6 justify-center text-xs'>
             <a className='text-blue-500 hover:text-blue-600' href='#'>Forgot Password</a>
             <span id='login-logo' className="mx-2 text-neutral-700">/</span>
-            <a className='text-blue-500 hover:text-blue-600' href='#'>Sign Up</a>
+            <a className='text-blue-500 hover:text-blue-600' href='/signup'>Sign Up</a>
           </div>
         </form>
       </div>
