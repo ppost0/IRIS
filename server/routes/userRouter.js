@@ -13,7 +13,7 @@ router.post('/', userController.signup, (req, res) => {
 
 // Login an existing user
 router.post('/login', userController.login, (req, res) => {
-  return res.status(200).json('Logged in as ' + res.locals.user);
+  return res.status(200).json('Logged in user ' + res.locals.user);
 });
 
 

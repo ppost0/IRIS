@@ -1,11 +1,11 @@
 import React from "react";
 import logo from '../assets/images/1.png'
+import { redirect } from 'react-router-dom';
 
 const Login = () => {
 
   const loginUser = async () => {
     try {
-      // if (document.getElementById('passwordField').value === document.getElementById('reEnterPasswordField').value) {
         const response = await fetch('/api/users/login', {
           method: 'POST',
           mode: "cors",
@@ -22,6 +22,7 @@ const Login = () => {
             password: document.getElementById('passwordField').value
           })
         })
+
 
 
     } catch (error) {
@@ -57,7 +58,7 @@ const Login = () => {
     </div>
 
 
-  );
+);
 };
 
 
