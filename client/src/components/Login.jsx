@@ -1,10 +1,12 @@
 import React from "react";
 import logo from '../assets/images/1.png'
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
+  const navigate = useNavigate();
   const loginUser = async () => {
+
     try {
         const response = await fetch('/api/users/login', {
           method: 'POST',
@@ -23,6 +25,8 @@ const Login = () => {
           })
         })
 
+        console.log(response.status)
+        if (response.status === 200) navigate('/feed');
 
 
     } catch (error) {
