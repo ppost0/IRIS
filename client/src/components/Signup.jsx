@@ -24,7 +24,8 @@ const Signup = () => {
             })
           })
 
-
+          if (response.status === 200) window.alert('Signup successful!');
+          else window.alert('Something went wrong. Please try again.');
 
 
       } catch (error) {

@@ -27,7 +27,7 @@ const Login = () => {
 
         console.log(response.status)
         if (response.status === 200) navigate('/feed');
-
+        else window.alert('Something went wrong. Please try again.');
 
     } catch (error) {
       console.error('Error fetching data:', error)
